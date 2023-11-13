@@ -1,3 +1,5 @@
+import { Team } from "./team";
+
 export class User 
 {
     /** ATRIBUTES **/
@@ -7,7 +9,7 @@ export class User
     private nName:string;
     private email:string;
     private passw:string;
-    ///private equipos:string; arreglo de 6 equipos.
+    //private equipos:Team;
 
     /** BUILDER **/
 

@@ -1,8 +1,13 @@
 export class Ability 
 {
+
+    /* ATRIBUTES */
+
     private name:string;
     private effect:string;
     private hidden:boolean;
+
+    /* BUILDERS */
 
     constructor(name:string,effect:string,hidden:boolean)
     {
@@ -10,6 +15,8 @@ export class Ability
         this.effect=effect;
         this.hidden=hidden;
     }
+
+    /* GETTERS */
 
     public getName():string
     {

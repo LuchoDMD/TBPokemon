@@ -5,6 +5,7 @@ export class Pokemon
 
     /* ATRIBUTES */
 
+    private id:number;
     private specie:string;
     private nick:string;
     private level:number;
@@ -14,8 +15,9 @@ export class Pokemon
 
     /* BUILDER */
 
-    constructor(specie:string,nick:string,level:number,genre:string,ability:Ability)
+    constructor(id:number,specie:string,nick:string,level:number,genre:string,ability:Ability)
     {
+        this.id=id;
         this.specie=specie;
         this.nick=nick;
         this.level=level;

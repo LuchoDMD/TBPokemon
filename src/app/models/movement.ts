@@ -2,7 +2,7 @@ export class Movement
 {
 
     /** ATRIBUTES **/
-    
+    private id:number;
     private name:string;   /* nombre del movimiento */
     private eType:string;  /* typo elemental: fuego, agua, planta, etc*/
     private cType:string;  /* categoria: fisico, special y */
@@ -13,8 +13,9 @@ export class Movement
 
     /** BUILDER **/
 
-    constructor(name:string,eType:string,cType:string,power:number,accur:number,pp:number,effect:string)
+    constructor(id:number,name:string,eType:string,cType:string,power:number,accur:number,pp:number,effect:string)
     {
+        this.id=id;
         this.name=name;
         this.eType=eType;
         this.cType=cType;
@@ -25,7 +26,10 @@ export class Movement
     }
 
     /** GETTERS **/
-
+    public getID():number
+    {
+        return this.id;
+    }
     public getName():string
     {
         return this.name;
