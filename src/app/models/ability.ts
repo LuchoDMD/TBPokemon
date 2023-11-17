@@ -3,29 +3,19 @@ export class Ability
 
     /* ATRIBUTES */
 
-    private name:string;
-    private effect:string;
-    private hidden:boolean;
+    name:string;
+    effect:string;
+    hidden:boolean;
 
     /* BUILDERS */
 
-    constructor(name:string,effect:string,hidden:boolean)
+    constructor()
     {
-        this.name=name;
-        this.effect=effect;
-        this.hidden=hidden;
+        this.name="";
+        this.effect="";
+        this.hidden=false;
     }
 
-    /* GETTERS */
-
-    public getName():string
-    {
-        return this.name;
-    }
-    public getEffect():string
-    {
-        return this.effect;
-    }
 }
 
 

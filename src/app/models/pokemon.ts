@@ -5,63 +5,34 @@ export class Pokemon
 
     /* ATRIBUTES */
 
-    private id:number;
-    private specie:string;
-    private nick:string;
-    private level:number;
-    private genre:string;     /* m:macho, f:hembra, n:none */
-    private ability:Ability;
+    id:number;
+    specie:string;
+    nick:string;
+    level:number;
+    genre:string;     /* m:macho, f:hembra, n:none */
+    ability:Ability;
     private stats:Stats;
 
     /* BUILDER */
 
-    constructor(id:number,specie:string,nick:string,level:number,genre:string,ability:Ability)
+    constructor()
     {
-        this.id=id;
-        this.specie=specie;
-        this.nick=nick;
-        this.level=level;
-        this.genre=genre;
-        this.ability=ability;
+        this.id=0;
+        this.specie="";
+        this.nick="";
+        this.level=0;
+        this.genre="";
+        this.ability=new Ability();
         this.stats= new Stats();
-    }
-
-    /* SETTERS */
-
-    public setNick(nick:string):void
-    {
-        this.nick=nick;
     }
 
     public setStats(atk:number,def:number,satk:number,sdef:number,spd:number):void
     {
-        this.stats.setAtk(atk);
-        this.stats.setDef(def);
-        this.stats.setSatk(satk);
-        this.stats.setSdef(sdef);
-        this.stats.setSpd(spd);
-    }
-    
-    /* GETTERS */
-
-    public getSpecie():string
-    {
-        return this.specie
-    }
-
-    public getNick():string
-    {
-        return this.nick;
-    }
-
-    public getLevel():number
-    {
-        return this.level;
-    }
-
-    public getAbility():string
-    {
-        return this.ability.getName();
+        this.stats.atk=atk;
+        this.stats.def=def;
+        this.stats.satk=satk;
+        this.stats.sdef=sdef;
+        this.stats.spd=spd;
     }
 }
 
@@ -75,11 +46,11 @@ export class Stats
 {
     /** ATRIBUTES **/
 
-    private atk:number;  /* ATAQUE*/
-    private def:number;  /* DEFENSA*/
-    private satk:number; /* ATAQUE ESPECIAL */
-    private sdef:number; /* DEFENSA ESPECIAL*/
-    private spd:number;  /* VELOCIDAD*/
+    atk:number;  /* ATAQUE*/
+    def:number;  /* DEFENSA*/
+    satk:number; /* ATAQUE ESPECIAL */
+    sdef:number; /* DEFENSA ESPECIAL*/
+    spd:number;  /* VELOCIDAD*/
 
     /** BUILDER **/
 
@@ -91,29 +62,5 @@ export class Stats
         this.sdef=0;
         this.spd=0;
     }
-
-    public setAtk(atk:number)
-    {
-        this.atk=atk;
-    }
-    public setDef(def:number)
-    {
-        this.def=def;
-        
-    }
-    public setSatk(satk:number)
-    {
-        this.satk=satk;
-    }
-    public setSdef(sdef:number)
-    {
-        this.sdef=sdef;
-        
-    }
-    public setSpd(spd:number)
-    {
-        this.spd=spd;
-    }
-    
 }
 

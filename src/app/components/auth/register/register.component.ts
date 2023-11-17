@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup,FormControl } from '@angular/forms';
+import { FormGroup,FormControl, Validators } from '@angular/forms';
 import { User } from 'src/app/models/user';
 
 @Component({
@@ -11,21 +11,41 @@ import { User } from 'src/app/models/user';
 export class RegisterComponent implements OnInit
 {
     usuario:User=new User();
-    n_usuario:FormGroup | any;
+    f_usuario:FormGroup= new FormGroup('');
+
     constructor(){}
+
     createForm()
     {
-        this.n_usuario= new FormGroup('');
+      this.f_usuario= new FormGroup({
+        'lName': new FormControl(this.usuario.lName,
+        [Validators.required, Validators.maxLength(30)]),
+        'fName' : new FormControl(this.usuario.fName,
+        [Validators.required, Validators.maxLength(30)]),
+        'nName': new FormControl(this.usuario.nName,
+        [Validators.required, Validators.maxLength(50)]), 
+        'email': new FormControl(this.usuario.email,
+        [Validators.required, Validators.email]),
+        'passw': new FormControl(this.usuario.passw,
+        [Validators.required]) 
+        /* Crear un Validador para que la clave si o si incluya una mayuscula, 1 caracter especial y 3 numeros */
+      });
     }
 
     ngOnInit(): void 
     {
-      
+      this.createForm();
     }
 
     ngOnSubmit()
     {
-
+      /* Aqui lo enviaria si cumple con las condiciones a JSON.Server */
     }
 
-}
+    get lName(){ return this.f_usuario.get('lName');}
+    get fName(){ return this.f_usuario.get('fName');}
+    get nName(){ return this.f_usuario.get('nName');}
+    get email(){ return this.f_usuario.get('email');}
+    get passw(){ return this.f_usuario.get('passw');}
+    
+  }
