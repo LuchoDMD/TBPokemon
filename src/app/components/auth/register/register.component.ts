@@ -11,9 +11,14 @@ import { User } from 'src/app/models/user';
 export class RegisterComponent implements OnInit
 {
     usuario:User=new User();
-    f_usuario:FormGroup;
+    f_usuario:FormGroup=new FormGroup('');
 
     constructor()
+    {
+
+    }
+
+    ngOnInit(): void 
     {
       this.f_usuario= new FormGroup({
         'lName': new FormControl(this.usuario.lName,
@@ -28,11 +33,6 @@ export class RegisterComponent implements OnInit
         [Validators.required/*, this.passWRDValidator*/]) 
         /* Crear un Validador para que la clave si o si incluya una mayuscula, 1 caracter especial y 3 numeros */
       });
-    }
-
-    ngOnInit(): void 
-    {
-      RegisterComponent.constructor();
     }
 
     ngOnSubmit()

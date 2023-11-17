@@ -1,4 +1,4 @@
-<form novalidate [formGroup]="f_usuario" (ngSubmit)="ngOnSubmit()">
+<form novalidate>
     <fieldset class="form-group">
         <div>
             <label>
@@ -26,7 +26,7 @@
             </label>        
         </div>
         <div>
-            <button type="submit" class="btn btn-succes">SingIN</button>
+            <button type="submit" class="btn btn-succes" (ngSubmit)="ngOnSubmit()">SingIN</button>
         </div>
     </fieldset>
     <!-- Aqui va la logica de los validators -->
