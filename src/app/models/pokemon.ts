@@ -65,6 +65,12 @@ export class Pokemon
     }
 }
 
+/* 
+    Posiblemente tener una clase DATA que almacene los datos  
+    basicos del pokemon, las estadisticas y ultimo la informacion 
+    como imagenes si las hay. 
+*/
+
 export class Stats
 {
     /** ATRIBUTES **/

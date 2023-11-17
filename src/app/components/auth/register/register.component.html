@@ -1,1 +1,33 @@
-<p>register works!</p>
+<form novalidate [formGroup]="n_usuario" (ngSubmit)="OnSubmit()">
+    <fieldset class="form-group">
+        <div>
+            <label>
+                <span>Apellido</span>
+                <input class="form-control" type="text" placeholder="Apellido/s de usuario" formControlName="lname">
+            </label>
+            <label>
+                <span>Nombre</span>
+                <input class="form-control" type="text" placeholder="Nombre/s de usuario" formControlName="fname">
+            </label>
+        </div>
+        <div>
+            <label>
+                <span>Usuario</span>
+                <input class="form-control" type="text" placeholder="Nick del usuario" formControlName="nname">
+            </label>
+            <label>
+                <span>Email</span>
+                <input class="form-control" type="email" placeholder="example@mail.com" formControlName="mail">
+            </label>
+            <label>
+                <span>Clave</span>
+                <input class="form-control" type="password" placeholder="ingresa clave" formControlName="Ipass">
+                <input class="form-control" type="password" placeholder="confirma clave" formControlName="Cpass">
+            </label>        
+        </div>
+        <div>
+            <button type="submit" class="btn btn-succes">SingIN</button>
+        </div>
+    </fieldset>
+
+</form>

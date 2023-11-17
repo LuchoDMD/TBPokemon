@@ -9,17 +9,18 @@ export class User
     private nName:string;
     private email:string;
     private passw:string;
-    //private equipos:Team;
+    private equipos:Array<Team>;
 
     /** BUILDER **/
 
-    constructor(lName:string,fName:string,nName:string,email:string,passw:string)
+    constructor()
     {
-        this.lName=lName;
-        this.fName=fName;
-        this.nName=nName;
-        this.email=email;
-        this.passw=passw;
+        this.lName=" ";
+        this.fName=" ";
+        this.nName=" ";
+        this.email=" ";
+        this.passw=" ";
+        this.equipos=new Array<Team>();
     }
 
     /** SETTERS **/
@@ -44,6 +45,13 @@ export class User
     {
         this.passw=passw;
     }
+    public setTeam(equipo:Team)
+    {
+        if(this.equipos.length<6)
+        {
+            this.equipos.push(equipo);
+        }
+    }
 
     /** GETTERS **/
 
@@ -66,5 +74,6 @@ export class User
     public getPassw():string
     {
         return this.passw;
-    } 
+    }
+
 }
