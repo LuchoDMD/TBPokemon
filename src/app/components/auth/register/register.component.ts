@@ -11,7 +11,7 @@ import { User } from 'src/app/models/user';
 export class RegisterComponent implements OnInit
 {
     usuario:User=new User();
-    f_usuario:FormGroup
+    f_usuario:FormGroup;
 
     constructor()
     {
