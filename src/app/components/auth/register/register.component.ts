@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit
         'email': new FormControl(this.usuario.email,
         [Validators.required, Validators.email]),
         'passw': new FormControl(this.usuario.passw,
-        [Validators.required]) 
+        [Validators.required/*, this.passWRDValidator*/]) 
         /* Crear un Validador para que la clave si o si incluya una mayuscula, 1 caracter especial y 3 numeros */
       });
     }
