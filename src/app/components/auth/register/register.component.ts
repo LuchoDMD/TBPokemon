@@ -13,17 +13,17 @@ import { User } from "src/app/models/classes/user";
   {
     usuario: User= new User();
     fUsuario!: FormGroup;
-    constructor(private fb: FormBuilder) { }
+    constructor() { }
   
     ngOnInit(): void 
     {
-      this.fUsuario= this.fb.group(
-      {
-        lName: ['', Validators.required,Validators.maxLength(50)],
-        fName: ['', Validators.required,Validators.maxLength(50)],
-        nName: ['', Validators.required,Validators.maxLength(50)],
-        email: ['', [Validators.required, Validators.email]],
-        passw: ['', [Validators.required]]
+      this.fUsuario= new FormGroup
+      ({
+         'lName': new FormControl(this.usuario.get_lName(),[Validators.required,Validators.maxLength(50)]),
+         'fName': new FormControl(this.usuario.get_fName(),[Validators.required,Validators.maxLength(50)]),
+         'nName': new FormControl(this.usuario.get_nName(),[Validators.required,Validators.maxLength(50)]),
+         'email': new FormControl(this.usuario.get_email(),[Validators.required,Validators.email]),
+         'passw': new FormControl(this.usuario.get_passw(),[Validators.required])
       });
     }
     

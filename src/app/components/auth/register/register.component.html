@@ -1,44 +1,29 @@
-<form [formGroup]="fUsuario" (ngSubmit)="ngOnSubmit()">
-  <div class="registForm">
+<form>
+  <fieldset>
     <div>
-      <label for="Apellido">Apellido:</label>
-      <input type="text" formControlName="lName">
-      <div *ngIf="formulario.get('lName').hasError('required')">El apellido es obligatorio.</div>
+      <label for="Apellido">Apellido</label>
+        <input type="text" class="form-control" formControlName="lName" placeholder="Ingrese Apellido/s">
     </div>
+    <div>
+      <label for="Nombre">Nombre</label>
+      <input type="text" class="form-control" formControlName="fName" placeholder="Ingrese Nombre/s">
+    </div>
+    <div>
+      <label for="Nick">Usuario</label>
+      <input type="text" class="form-control" formControlName="nName" placeholder="Ingrese nick">
+    </div>
+    <div>
+      <label for="Email">Email</label>
+      <input type="email" class="form-control" formControlName="email" placeholder="Ingrese ejemplo@mail.com">
+    </div>
+    <div>
+      <input type="password" class="form-control" formControlName="passw" placeholder="Ingresar clave">
+    </div>
+    <div>
+      <input type="password" class="form-control" formControlName="cpass" placeholder="Confirmar clave">
+    </div>
+  </fieldset>
   
-    <div>
-      <label for="Nombre">Nombre:</label>
-      <input type="text" formControlName="fName">
-      <div *ngIf="formulario.get('lName').hasError('required')">El nombre es obligatorio.</div>
-    </div>
-  
-    <div>
-      <label for="Nick">Usuario:</label>
-      <input type="text" formControlName="nName">
-      <div *ngIf="formulario.get('nName').hasError('required')">El nick es obligatorio.</div>
-    </div>
-  
-    <div>
-      <label for="Email">Email:</label>
-      <input type="text" formControlName="email">
-      <div *ngIf="formulario.get('email').hasError('required')">El email es obligatorio.</div>
-      <div *ngIf="formulario.get('email').hasError('email')">El formato del email no es válido.</div>
-    </div>
-  
-    <div>
-      <label for="password">Contraseña:</label>
-      <input type="password" formControlName="passw">
-      <div *ngIf="formulario.get('passw').hasError('required')">La contraseña es obligatoria.</div>
-      <div *ngIf="formulario.get('passw').hasError('invalidPassword')">La contraseña no cumple con los requisitos.</div>
-    </div>
-  
-    <div>
-      <label for="confirmPassword">Confirmar Contraseña:</label>
-      <input type="password" formControlName="confirmPassword">
-      <div *ngIf="formulario.hasError('passwordsNotMatch')">Las contraseñas no coinciden.</div>
-    </div>
-    <button type="submit">Registrar</button>
-  </div>
 </form>
 
   

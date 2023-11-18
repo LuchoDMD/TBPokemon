@@ -62,4 +62,8 @@ export class User
     {
         return this.email;
     }
+    public get_pass():string
+    {
+        return this.passw;
+    }
 }
