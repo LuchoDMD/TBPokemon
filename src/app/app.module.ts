@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { RegisterComponent } from './components/auth/register/register.component';
+import { RegisterComponent } from './components/auth/register/RegisterComponent';
 import { LoginComponent } from './components/auth/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { PokemonSearchComponent } from './components/team/pokemon-search/pokemon-search.component';

@@ -1,32 +1,20 @@
-<form novalidate>
-    <fieldset class="form-group">
-        <div>
-            <label>
-                <span>Apellido</span>
-                <input class="form-control" type="text" placeholder="Apellido/s de usuario" formControlName="lname">
-            </label>
-            <label>
-                <span>Nombre</span>
-                <input class="form-control" type="text" placeholder="Nombre/s de usuario" formControlName="fname">
-            </label>
-        </div>
-        <div>
-            <label>
-                <span>Usuario</span>
-                <input class="form-control" type="text" placeholder="Nick del usuario" formControlName="nname">
-            </label>
-            <label>
-                <span>Email</span>
-                <input class="form-control" type="email" placeholder="example@mail.com" formControlName="mail">
-            </label>
-            <label>
-                <span>Clave</span>
-                <input class="form-control" type="password" placeholder="ingresa clave" formControlName="Ipass">
-                <input class="form-control" type="password" placeholder="confirma clave" formControlName="Cpass">
-            </label>        
-        </div>
-        <div>
-            <button type="submit" class="btn btn-succes" (ngSubmit)="ngOnSubmit()">SingIN</button>
-        </div>
-    </fieldset>
-</form>
+<form (ngSubmit)="ngOnSubmit()"><!--[formGroup]="formulario" -->
+    <!-- Otros campos del usuario -->
+    <div>
+      <label for="password">Contraseña:</label>
+      <input type="password" formControlName="password" />
+      <div *ngIf="formulario.get('password').hasError('required')">La contraseña es obligatoria.</div>
+      <div *ngIf="formulario.get('password').hasError('invalidPassword')">La contraseña no cumple con los requisitos.</div>
+    </div>
+  
+    <div>
+      <label for="confirmPassword">Confirmar Contraseña:</label>
+      <input type="password" formControlName="confirmPassword" />
+      <div *ngIf="formulario.hasError('passwordsNotMatch')">Las contraseñas no coinciden.</div>
+    </div>
+  
+    <button type="submit">Registrar</button><!--[disabled]="formulario.invalid"-->
+  </form>
+
+  
+  
