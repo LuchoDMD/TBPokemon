@@ -1,35 +1,35 @@
-<form [formGroup]="f_usuario" (ngSubmit)="ngOnSubmit()">
+<form [formGroup]="fUsuario" (ngSubmit)="ngOnSubmit()">
   <div class="registForm">
     <div>
       <label for="Apellido">Apellido:</label>
-      <input type="text" formControlName="lName" />
+      <input type="text" formControlName="lName">
       <div *ngIf="formulario.get('lName').hasError('required')">El apellido es obligatorio.</div>
     </div>
   
     <div>
       <label for="Nombre">Nombre:</label>
-      <input type="text" formControlName="Nombre" />
+      <input type="text" formControlName="fName">
       <div *ngIf="formulario.get('lName').hasError('required')">El nombre es obligatorio.</div>
     </div>
   
     <div>
-      <label for="Nick">Nick:</label>
-      <input type="text" formControlName="Nick" />
+      <label for="Nick">Usuario:</label>
+      <input type="text" formControlName="nName">
       <div *ngIf="formulario.get('nName').hasError('required')">El nick es obligatorio.</div>
     </div>
   
     <div>
       <label for="Email">Email:</label>
-      <input type="text" formControlName="Email" />
+      <input type="text" formControlName="email">
       <div *ngIf="formulario.get('email').hasError('required')">El email es obligatorio.</div>
       <div *ngIf="formulario.get('email').hasError('email')">El formato del email no es válido.</div>
     </div>
   
     <div>
       <label for="password">Contraseña:</label>
-      <input type="password" formControlName="password" />
-      <div *ngIf="formulario.get('password').hasError('required')">La contraseña es obligatoria.</div>
-      <div *ngIf="formulario.get('password').hasError('invalidPassword')">La contraseña no cumple con los requisitos.</div>
+      <input type="password" formControlName="passw">
+      <div *ngIf="formulario.get('passw').hasError('required')">La contraseña es obligatoria.</div>
+      <div *ngIf="formulario.get('passw').hasError('invalidPassword')">La contraseña no cumple con los requisitos.</div>
     </div>
   
     <div>
