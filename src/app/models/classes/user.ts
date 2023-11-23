@@ -62,7 +62,7 @@ export class User
     {
         return this.email;
     }
-    public get_pass():string
+    public get_passw():string
     {
         return this.passw;
     }

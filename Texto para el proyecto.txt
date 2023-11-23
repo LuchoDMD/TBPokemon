@@ -1,0 +1,97 @@
+Necesito un proyecto en Angular que tenga lo siguiente:
+
+Primero va a ser una pagina que te permita hacer 6 equipos de pokemons por usuario, estos estan formados 
+por 6 pokemons. Aqui dejo alguno de los conceptos que necesito para el proyecto, podrias ayudarme mucho
+con la codificacion:  
+
+CLASS:
+
+models/User.ts: El usuario tiene como atributos privados lName:string(apellido), fName:string(nombre), 
+nName:string(nick), genre:char(genero), email:string, passw:string(clave). 
+models/Pokemon:  Este posee los siguientes atributos privados: id:number, specie:string, nick:string, 
+genre:string, types:Array<string>[2], level:number, stadistics:Stats, moves:Array<Move>[4], 
+equip:Item.
+models/Stats: Este posee los siguientes atributos privados: atk:number, def:number, satk:number,
+sdef:number, spd:number.
+models/Move: Este posee los siguientes atributos privados: id:number, name:string, type:string, 
+category:string, power:number, acurr:number, pp:number, effect:string.
+models/Item: Este posee los siguientes atributos privados: id:number, icon:string, name:string, 
+effect:string.
+models/Equipo: Este simplemente tendra un arreglo de 6 pokemons 
+
+Todos los objetos con constructor y sus respectivos getters y setters.
+
+COMPONENTS:
+
+components/auth/register: Este sera un formulario reactivo, este debe estar centrado y reducido al 
+80, en el se ingresaran los datos del usuario al momento del registro ademas de una confirmacion 
+de clave, emplear el uso de VALIDATORS(required, maxlenght(30), email,uno custom que sea para la 
+clave que debe cumplir con los siguientes requisitos: una letra mayuscula, un caracter especial y tres 
+numeros, y una validadcion que compruebe que las claves son correctas). 
+En caso de que no se cumpla los requisitos debera aparecer unos warnings(lanzados con un *ngIf) en unos 
+<div> con un mensaje de los validator(el campo "Nombre del campo" requerido, maximo de caracteres en 
+el campo "nombre del campo", el formato del campo "email" es incorrecto ej:example@mail.com, requisitos 
+de la clave, las claves no coinciden). Estos deben de estar en la misma posicion(abajo a la derecha)
+y si es el caso resetear los campos del formulario.
+Si se cumplen se guardara primero en un objeto User y luego en un JSON.Server, dando un mensaje de 
+alert("Usuario registrado correctamente, continuar").
+
+components/auth/login: Este sera tambien reactivo, este debera estar centrado y reducido al 80, en el se 
+ingresaran el nick o el email y la clave, al intentar ingresar buscar en el JSON.Server si los datos 
+ingresados pertenecen a un usuario, en caso positivo mostrar un mensaje alert(Login exitoso,
+dando bienvenida), y guarda el usuario en el sessionStorage() para su posible uso hasta cerrar session. 
+Caso contrario debera aparecer un warning(lanzado con un *ngIf) en un <div> que tenga
+el siguiente mensaje "Login Fallido: usuario/mail y/o clave no corresponde con un usuario registrado. 
+Volver a intentar". Este debe de estar en la misma posicion(abajo a la derecha) y si es el caso 
+resetear los campos del formulario.
+
+components/Home: primero te envia a la pagina de login. Solo eso.
+
+VIEWS:
+
+views/profile: Este tiene un <div> principal debe de estar centrado, y en su interior tiene primero una 
+imagen por defecto si es hombre o mujer(tiene la misma medida, ademas debe estar a la izquierda) y su 
+nombre de usuario, debajo un <nav> con los botones de editar perfil y cerrarsession con su funcionalidad 
+respectiva. El editar perfil llama a la view profile-edit, y el cerrarSession primero elimina el usuario 
+del sessionStorage y luego te envia a la pagina home. 
+
+view/teams: Debajo del nav, habra un <lista> con los equipos pokemons  que actualmente posee
+(Estos pueden ser una vista pequeña con el nombre del equipo y los iconos pequeños correspondiente 
+a cada pokemon, sino posee los 6 equipos el ultimo elemento de la lista es un boton que permite acceder al 
+team-builder, tocando el equipo ya armado puedes acceder al team-edit).
+
+
+MODULES:
+module/profile-edit: Tiene una lista con el formulario con los datos del usuario y puede editarlos y un boton 
+de guardar cambios que envia los cambios al JSON.server y al sessionStorage.
+
+module/team-builder: Por ahora crearlo pero no agregar funcionalidad hasta volver a mencionarlo.
+
+module/team-edit: Por ahora crearlo pero no agregar funcionalidad hasta volver a mencionarlo.
+
+
+SERVICES:
+
+services/auth.service.ts: Este se encargara de guardar los usuarios en el JSON.server y de comprobar que
+este existe durante el login y lo almacena en el sessionStorage, cuando cierre session todo los cambios del
+usuario del sessionStorage almacenarlos en el mismo usuario del JSON.Server y luego elimine la informacion
+del sessionStorage.
+
+services/PokeAPI.services.ts: Este primero se encargara de consumir la API https://pokeapi.co/, Almacenando
+luego del inicio de session un arreglo de los items existentes, de los movimientos existentes y los pokemons 
+existentes en 3 arreglos que al cerrarSession seran reseteados a 0 elementos. Usar las clases previamente 
+creadas.
+
+Usar para mejorar la experiencia en la pagina: 
+
+ANGULAR RUTING:
+	Las transiciones van en el siguiente orden:
+		HOME -> REGISTER -> LOGIN -> PROFILE -> VIEW PROFILE -> EDIT PROFILE
+							VIEW TEAMS   -> TEAM EDIT
+								     -> TEAM BUILDER
+ANGULAR GUARDS:
+	Se debe evitar que si no existe un usuario logeado no se pueda acceder a las vistas perfil(views/profile), 
+equipos(views/teams),editar perfil(module/profile-edit) o editar equipos(module/team-edit) o crear equipos
+(module/team-builder).
+
+A donde considere correcto aplicar los temas de Observables.
